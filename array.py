@@ -51,7 +51,7 @@ def move_zeros_2(nums):
     p1 = 0
     p2 = 0
 
-    while (p1 != len(nums) & (p2 != len(nums))):
+    while (p1 != len(nums) and (p2 != len(nums))):
         # p1 finds first zero
         for i in range(p1, len(nums)+1):
             if i == len(nums):
@@ -59,6 +59,7 @@ def move_zeros_2(nums):
                 break
             if nums[i] == 0:
                 p1 = i
+                print("found zero")
                 break
 
         # p2 finds first nonzero
@@ -68,6 +69,7 @@ def move_zeros_2(nums):
                 break
             if nums[j] != 0:
                 p2 = j
+                print("found nonzero")
                 break
 
         # swap as long as the zero is before the nonzero
@@ -77,8 +79,13 @@ def move_zeros_2(nums):
             nums[p1] = nums[p2]
             nums[p2] = tmp
 
+            #advance pointers
+            p1 =+ 1
+            p2 += 1
+
         time.sleep(2)
 
+    print(f"ended with p1 as {p1} and p2 as {p2}")
     return nums
 
 # ============== TEST ================

@@ -1,0 +1,1 @@
+implementing data structures/algorithms from scratch by hand for leetcode prep. 

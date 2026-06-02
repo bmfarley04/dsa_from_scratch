@@ -86,12 +86,23 @@ def move_zeros_2(nums):
     print(f"ended with p1 as {p1} and p2 as {p2}")
     return nums
 
+def two_sum_brute(nums, target):
+    for i in range(len(nums)):
+        for j in range(len(nums)):
+            if i == j:
+                continue
+            if nums[i] + nums[j] == target:
+                return i, j
+
+
 # ============== TEST ================
 
 nums1 = [6, -12, 12, 17, 23, 4]
 nums2 = [1,1, 2, 3, 3, 4, 5]
 nums3 = [0, 1, 0, 3, 12]
 nums4 = [0, 0, 0, 1]
+nums5 = [4,6,1,3,5]
+nums6 = [3,3]
 # print(find_max(nums1))
 
 # print(reverse_in_place(nums1))
@@ -99,5 +110,8 @@ nums4 = [0, 0, 0, 1]
 
 # print(remove_duplicates(nums2))
 
-print(move_zeros_2(nums3))
-print(move_zeros_2(nums4))
+# print(move_zeros_2(nums3))
+# print(move_zeros_2(nums4))
+
+print(two_sum_brute(nums5,10))
+print(two_sum_brute(nums6,6))

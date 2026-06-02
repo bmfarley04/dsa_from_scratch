@@ -80,10 +80,8 @@ def move_zeros_2(nums):
             nums[p2] = tmp
 
             #advance pointers
-            p1 =+ 1
+            p1 += 1
             p2 += 1
-
-        time.sleep(2)
 
     print(f"ended with p1 as {p1} and p2 as {p2}")
     return nums
@@ -102,4 +100,4 @@ nums4 = [0, 0, 0, 1]
 # print(remove_duplicates(nums2))
 
 print(move_zeros_2(nums3))
-# print(move_zeros_2(nums4))
+print(move_zeros_2(nums4))

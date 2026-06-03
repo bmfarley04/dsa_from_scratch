@@ -94,6 +94,21 @@ def two_sum_brute(nums, target):
             if nums[i] + nums[j] == target:
                 return i, j
 
+def two_sum_hash(nums, target):
+    dct = {}
+
+    # gives a dictionary with all numbers in the list and their index
+    for i in range(len(nums)):
+        dct[nums[i]] = i
+
+    # debug
+    print(f"dictionary: {dct}")
+
+    # search dictionary
+    for i in range(len(nums)):
+        if dct.get(target - nums[i]) != None and i != dct.get(target - nums[i]):
+            return i, dct.get(target - nums[i])
+        
 
 # ============== TEST ================
 
@@ -113,5 +128,5 @@ nums6 = [3,3]
 # print(move_zeros_2(nums3))
 # print(move_zeros_2(nums4))
 
-print(two_sum_brute(nums5,10))
-print(two_sum_brute(nums6,6))
+print(two_sum_hash(nums5,10))
+print(two_sum_hash(nums6,6))

@@ -108,7 +108,43 @@ def two_sum_hash(nums, target):
     for i in range(len(nums)):
         if dct.get(target - nums[i]) != None and i != dct.get(target - nums[i]):
             return i, dct.get(target - nums[i])
-        
+
+def rotate_by_k(nums, k):
+    k = k % len(nums)
+    
+    lst = []
+
+    for i in range(k):
+        lst.append(nums[(len(nums)-k)+i])
+    
+    print(lst)
+
+    m = len(nums) - k
+
+    for j in range(m):
+        lst.append(nums[j])
+
+    return lst
+
+def rotate_by_k_2(nums, k):
+    k = k % len(nums)
+
+    # reverse whole array
+    reverse(nums)
+    reverse(nums[0:k])
+    reverse(nums[k:len(nums)])
+
+    return nums
+
+def reverse(nums):
+    num_swaps = len(nums) // 2
+
+    for i in range(num_swaps):
+        tmp = nums[i]
+        nums[i] = nums[len(nums)-1-i]
+        nums[len(nums)-1-i] = tmp
+
+    return nums        
 
 # ============== TEST ================
 
@@ -118,6 +154,7 @@ nums3 = [0, 1, 0, 3, 12]
 nums4 = [0, 0, 0, 1]
 nums5 = [4,6,1,3,5]
 nums6 = [3,3]
+nums7 = [1, 2, 3, 4, 5]
 # print(find_max(nums1))
 
 # print(reverse_in_place(nums1))
@@ -128,5 +165,7 @@ nums6 = [3,3]
 # print(move_zeros_2(nums3))
 # print(move_zeros_2(nums4))
 
-print(two_sum_hash(nums5,10))
-print(two_sum_hash(nums6,6))
+# print(two_sum_hash(nums5,10))
+# print(two_sum_hash(nums6,6))
+
+print(rotate_by_k_2(nums7, 3))
